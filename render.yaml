@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: n8n
+    runtime: docker
+    plan: free  # Cambia a "starter" si necesitas más recursos
+    env: docker
+    build:
+      dockerfile: Dockerfile
+    envVars:
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: "crisrobal.chai@gmail.com"  # Cambia esto por tu usuario
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: "Chai1805.."  # Cambia esto por una contraseña segura
+      - key: N8N_HOST
+        value: "0.0.0.0"
+      - key: N8N_PORT
+        value: "5678"
+      - key: N8N_PROTOCOL
+        value: "https"
+      - key: WEBHOOK_URL
+        value: "https://n8n.onrender.com"  # Cambiar después del despliegue
